@@ -1,0 +1,21 @@
+{% extends "catalog/base_generic.html" %}
+
+{% block content %}
+
+
+  <p><strong>Author:</strong>{{ author.first_name }} {{ author.last_name }}</p> <!-- author detail link not yet defined -->
+  - <small>{{ author.date_of_birth }} - {{ author.date_of_death }}</small>
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Books:</h4>
+
+    {% for copy in author.book_set.all %}
+      <hr>
+      <ul>
+      <li> <a href="{% url 'book-detail' copy.id %}">{{ copy.title }}</a><br>
+        <p>{{ copy.content }}</p>
+      </li>
+      </ul>
+      
+    {% endfor %}
+  </div>
+{% endblock %}

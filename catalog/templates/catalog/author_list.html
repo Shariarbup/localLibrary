@@ -1,0 +1,16 @@
+{% extends "catalog/base_generic.html" %}
+
+{% block content %}
+  <h1>Auhtor List</h1>
+  {% if auhtor_list %}
+  <ul>
+    {% for auhtor in auhtor_list %}
+      <li>
+        <a href="{{ auhtor.get_absolute_url }}">{{ auhtor.first_name }} {{ auhtor.last_name }}</a> ({{ auhtor.date_of_birth }}-{{ author.date_of_seath }})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no Auhtors. </p>
+  {% endif %}       
+{% endblock %}
