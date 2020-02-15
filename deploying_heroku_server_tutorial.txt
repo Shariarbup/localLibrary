@@ -1,0 +1,57 @@
+mkdir ~/.ssh
+cd ~/.ssh
+ssh-keygen.exe
+ls
+then you show two file: 1.id_rsa, 2.id_rsa.pub
+then go to the root folder of the project
+
+heroku login
+heroku keys:add
+touch Procfile---------for creating Procfile in root folder of the project
+
+settings.py
+----------------------------------
+import os
+import django_heroku
+from decouple import config
+import dj_database_url
+
+
+MIDDLEWARE = [
+    ........
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ........
+]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+django_heroku.settings(locals())
+
+
+** then create Procfile in the root directory
+in Profile write this---web: gunicorn portfolio.wsgi
+
+
+
+then run these command in cmd:
+---------------------------------------
+pip install django_heroku
+pip install python-decouple
+pip install dj_database_url
+pip install gunicorn
+
+pip freeze > requirements.txt
+
+git init 
+
+git add .
+
+git commit -m 'initial commit'
+
+heroku create app_name
+
+git push heroku master
+

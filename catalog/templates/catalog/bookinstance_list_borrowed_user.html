@@ -1,4 +1,4 @@
-{% extends "base_generic.html" %}
+{% extends "catalog/base_generic.html" %}
 
 {% block content %}
     <h1>Borrowed books</h1>
@@ -13,6 +13,7 @@
       {% endfor %}
     </ul>
 
+    
     {% else %}
       <p>There are no books borrowed.</p>
     {% endif %}       
